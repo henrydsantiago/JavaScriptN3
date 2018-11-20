@@ -28,3 +28,8 @@ $("#agregar").click(function(){
     let dato = prompt("Introduzca un texto:");
     $("ol").append("<li>"+dato+"</li>");
 })
+
+$("h1").click(function(){
+    $("h1").height($("h1").height()+10)
+    $("h1").toggleClass("color")
+})
