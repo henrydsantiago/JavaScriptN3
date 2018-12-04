@@ -5,8 +5,8 @@ $("#cargar").click(function(){
             $("#resultado").html(this.responseText);
         }
     }   
-    let url="http://127.0.0.1/asesor/clase2_2.html";
-    let recurso=""
+    let url="http://127.0.0.1/17104500/17104500/clase3/clase3_1.html";
+    let recurso="" //servicio
     let parametros=""
     ajax.open("GET",url+recurso+parametros,true);
     ajax.send();

@@ -2,12 +2,21 @@ $("#cargar").click(function(){
     var ajax=new XMLHttpRequest();
     ajax.onreadystatechange = function(){
         if (this.readyState==4){
-            $("#resultado").html(this.responseText);
+            // la respuesta la convierto en JSON
+            let respuesta = JSON.parse(this.responseText);
+            if (respuesta.Response=="True"){
+                $("#resultado").html(respuesta.totalResults);
+                for (let i=0;i<respuesta.Search.length;i++){
+                    $("#resultado").append(respuesta.Search[i].Title+"<br>")
+                }
+            }else{
+                $("#resultado").html("Error al conectarse");
+            }
         }
     }   
-    let url="http://127.0.0.1/asesor/clase2_2.html";
-    let recurso=""
-    let parametros=""
+    let url="http://www.omdbapi.com";
+    let recurso="/?"
+    let parametros="apikey=477db7f4&s=avenger"
     ajax.open("GET",url+recurso+parametros,true);
     ajax.send();
 });
